@@ -253,6 +253,12 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth</li>
+
+<li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
+
+<li>Draft of ''</li>
+
 <li>HOME SWEET HOME</li>
 
 <li>What is this?</li>
@@ -9562,7 +9568,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20141212105914482" modified="20200312180225860" tags="$:/tags/Macro" title="$:/core/macros/timeline">
+<div created="20141212105914482" modified="20200312182649277" tags="$:/tags/Macro" title="$:/core/macros/timeline">
 <pre>\define timeline-title()
 &lt;!-- Override this macro with a global macro 
      of the same name if you need to change 
@@ -9575,7 +9581,7 @@ Error message and password prompt
 &lt;$list filter=&quot;[!is[system]$subfilter$has[$dateField$]!sort[$dateField$]limit[$limit$]eachday[$dateField$]]&quot;&gt;
 &lt;div class=&quot;tc-menu-list-item&quot;&gt;
 &lt;$view field=&quot;$dateField$&quot; format=&quot;date&quot; template=&quot;$format$&quot;/&gt;
-&lt;$list filter=&quot;[sameday:$dateField${!!$dateField$}!is[system]$subfilter$!sort[$dateField$]]&quot;&gt;
+&lt;$list filter=&quot;[sameday:$dateField${!!$dateField$}!is[system]$subfilter$!tag[shadowed]!sort[$dateField$]]&quot;&gt;
 &lt;div class=&quot;tc-menu-list-subitem&quot;&gt;
 &lt;$link to={{!!title}}&gt;
 &lt;&lt;timeline-title&gt;&gt;
@@ -9837,6 +9843,15 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
         }
     }
 }</pre>
+</div>
+<div created="20200312182104927" modified="20200312182104928" title="$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth">
+<pre>300px</pre>
+</div>
+<div created="20200312182059912" modified="20200312182059912" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
+<pre>fluid-fixed</pre>
+</div>
+<div created="20200312182445692" draft.of="" draft.title="home decor style" modified="20200312182707919" tags="shadowed" title="Draft of ''">
+<pre></pre>
 </div>
 <div created="20200312172902916" modified="20200312172917364" tags="" title="HOME SWEET HOME">
 <pre></pre>
