@@ -1,0 +1,6 @@
+i lived, VIXI, and now i breathe my final breath
+i warn thee now, live well and love before you find your death
+
+User-agent: *
+Disallow: /
+index: /
