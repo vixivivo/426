@@ -209,6 +209,8 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/save-wiki</li>
 
+<li>$:/config/shortcuts/save-tiddler</li>
+
 <li>$:/core</li>
 
 <li>$:/core/macros/timeline</li>
@@ -235,6 +237,8 @@ Error message and password prompt
 
 <li>$:/palette</li>
 
+<li>$:/plugins/tiddlywiki/savetrail</li>
+
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
@@ -257,13 +261,25 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
 
+<li>aster</li>
+
 <li>home decor style</li>
 
 <li>HOME SWEET HOME</li>
 
+<li>theta</li>
+
+<li>THETA'S JOURNAL</li>
+
 <li>What is this?</li>
 
 <li>whiteboard</li>
+
+<li>WORKS FROM DR. ASTER</li>
+
+<li>XI</li>
+
+<li>xi</li>
 
 </ul>
 </p>
@@ -376,6 +392,9 @@ Error message and password prompt
 </div>
 <div created="20200312173125026" modified="20200312173125026" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/save-wiki">
 <pre>hide</pre>
+</div>
+<div created="20200313202950696" modified="20200313202955562" title="$:/config/shortcuts/save-tiddler">
+<pre>ctrl-shift-S</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.20">
 <pre>{
@@ -9693,8 +9712,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 &lt;/$set&gt;
 </pre>
 </div>
-<div created="20171108214559509" modified="20200312172856161" title="$:/DefaultTiddlers">
-<pre></pre>
+<div created="20171108214559509" modified="20200313203142755" title="$:/DefaultTiddlers">
+<pre>[[HOME SWEET HOME]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -9705,13 +9724,45 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20200312173001901" modified="20200312173003762" title="$:/palette">
 <pre>$:/palettes/SpartanNight</pre>
 </div>
+<div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="Auto-download modified tiddlers" list="readme settings" plugin-type="plugin" title="$:/plugins/tiddlywiki/savetrail" type="application/json" version="5.1.21">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/config/SaveTrailPlugin/enable-drafts&quot;: {
+            &quot;title&quot;: &quot;$:/config/SaveTrailPlugin/enable-drafts&quot;,
+            &quot;text&quot;: &quot;no&quot;
+        },
+        &quot;$:/config/SaveTrailPlugin/enable&quot;: {
+            &quot;title&quot;: &quot;$:/config/SaveTrailPlugin/enable&quot;,
+            &quot;text&quot;: &quot;yes&quot;
+        },
+        &quot;$:/config/SaveTrailPlugin/sync-drafts-filter&quot;: {
+            &quot;title&quot;: &quot;$:/config/SaveTrailPlugin/sync-drafts-filter&quot;,
+            &quot;text&quot;: &quot;[is[tiddler]has[draft.of]]&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/savetrail/readme&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/savetrail/readme&quot;,
+            &quot;text&quot;: &quot;This plugin causes TiddlyWiki to continuously download (as a JSON file) the contents of any tiddler that is manually changed by any of several means:\n\n* Confirming an edit\n* Deleting tiddlers\n* Imports\n* Renames/relinks\n* Optionally, typing in draft tiddlers can trigger a download\n\nWhere appropriate, separate 'before' and 'after' files are downloaded. Configured correctly, the browser will download the files silently in the background, and they can be used as a backup in case of accidental data loss.\n\n''CAUTION'': Using this plugin will generate a //lot// of files in your downloads folder! Some points to watch:\n\n* This plugin is pretty much unusable unless your browser is set up to download files automatically, without prompting for the location\n* Automatic file downloading doesn't work in all browsers - in particular, Safari and Internet Explorer do not currently support the [[necessary HTML5 feature|http://caniuse.com/download]]\n* Be aware of the privacy implications of leaving a plaintext trail of all of your edits. You should only enable this plugin on computers that your trust and with content that is not sensitive\n* The plugin uses the tiddler title plus a timestamp to generate a filename for the downloaded file, but some browsers ignore the specified title and generate their own title for each downloaded file\n\nOther points to note:\n\n* By default, after a draft tiddler has been modified the plugin waits until at least one second has elapsed since the last typing before it attempts to download the tiddler. This reduces the number of times that rapidly changing tiddlers are saved\n* This plugin can be used with both the single file HTML configuration and under Node.js because it is independent of the usual saving and syncing processes\n&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/savetrail/savetrail.js&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/savetrail/savetrail.js&quot;,
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/tiddlywiki/savetrail/savetrail.js\ntype: application/javascript\nmodule-type: startup\n\nA startup module to download every changed tiddler as a JSON file\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\n// Export name and synchronous status\nexports.name = \&quot;savetrail\&quot;;\nexports.platforms = [\&quot;browser\&quot;];\nexports.after = [\&quot;startup\&quot;];\nexports.synchronous = true;\n\n// Favicon tiddler\nvar ENABLE_TIDDLER_TITLE = \&quot;$:/config/SaveTrailPlugin/enable\&quot;,\n\tENABLE_DRAFTS_TIDDLER_TITLE = \&quot;$:/config/SaveTrailPlugin/enable-drafts\&quot;,\n\tSYNC_DRAFTS_FILTER_TIDDLER_TITLE = \&quot;$:/config/SaveTrailPlugin/sync-drafts-filter\&quot;;\n\nexports.startup = function() {\n\t$tw.savetrail = $tw.savetrail || {};\n\t// Create a syncer to handle autosaving\n\t$tw.savetrail.syncadaptor = new SaveTrailSyncAdaptor();\n\t$tw.savetrail.syncer = new $tw.Syncer({\n\t\twiki: $tw.wiki,\n\t\tsyncadaptor: $tw.savetrail.syncadaptor,\n\t\ttitleSyncFilter: SYNC_DRAFTS_FILTER_TIDDLER_TITLE,\n\t\tlogging: false,\n\t\tdisableUI: true\n\t});\n\t// Add hooks for trapping user actions\n\t$tw.hooks.addHook(\&quot;th-saving-tiddler\&quot;,function(tiddler) {\n\t\tif($tw.wiki.checkTiddlerText(ENABLE_TIDDLER_TITLE,\&quot;yes\&quot;)) {\n\t\t\tvar oldTiddler = $tw.wiki.getTiddler(tiddler.fields.title);\n\t\t\tif(oldTiddler) {\n\t\t\t\tsaveTiddlerFile(oldTiddler,{reason: \&quot;overwritten\&quot;});\t\t\t\n\t\t\t}\n\t\t\tsaveTiddlerFile(tiddler,{reason: \&quot;saved\&quot;});\n\t\t}\n\t\treturn tiddler;\n\t});\n\t$tw.hooks.addHook(\&quot;th-renaming-tiddler\&quot;,function(newTiddler,oldTiddler) {\n\t\tif($tw.wiki.checkTiddlerText(ENABLE_TIDDLER_TITLE,\&quot;yes\&quot;)) {\n\t\t\tif(oldTiddler) {\n\t\t\t\tsaveTiddlerFile(oldTiddler,{reason: \&quot;deleted\&quot;});\t\t\t\n\t\t\t}\n\t\t\tsaveTiddlerFile(newTiddler,{reason: \&quot;renamed\&quot;});\n\t\t}\n\t\treturn newTiddler;\n\t});\n\t$tw.hooks.addHook(\&quot;th-relinking-tiddler\&quot;,function(newTiddler,oldTiddler) {\n\t\tif($tw.wiki.checkTiddlerText(ENABLE_TIDDLER_TITLE,\&quot;yes\&quot;)) {\n\t\t\tif(oldTiddler) {\n\t\t\t\tsaveTiddlerFile(oldTiddler,{reason: \&quot;overwritten\&quot;});\t\t\t\n\t\t\t}\n\t\t\tsaveTiddlerFile(newTiddler,{reason: \&quot;relinked\&quot;});\n\t\t}\n\t\treturn newTiddler;\n\t});\n\t$tw.hooks.addHook(\&quot;th-importing-tiddler\&quot;,function(tiddler) {\n\t\tif($tw.wiki.checkTiddlerText(ENABLE_TIDDLER_TITLE,\&quot;yes\&quot;)) {\n\t\t\tvar oldTiddler = $tw.wiki.getTiddler(tiddler.fields.title);\n\t\t\tif(oldTiddler) {\n\t\t\t\tsaveTiddlerFile(oldTiddler,{reason: \&quot;overwritten\&quot;});\t\t\t\n\t\t\t}\n\t\t\tsaveTiddlerFile(tiddler,{reason: \&quot;imported\&quot;});\n\t\t}\n\t\treturn tiddler;\n\t});\n\t$tw.hooks.addHook(\&quot;th-deleting-tiddler\&quot;,function(tiddler) {\n\t\tif($tw.wiki.checkTiddlerText(ENABLE_TIDDLER_TITLE,\&quot;yes\&quot;)) {\n\t\t\tsaveTiddlerFile(tiddler,{reason: \&quot;deleted\&quot;});\n\t\t}\n\t\treturn tiddler;\n\t});\n};\n\nfunction SaveTrailSyncAdaptor(options) {\n\tthis.logger = new $tw.utils.Logger(\&quot;SaveTrail\&quot;);\n}\n\nSaveTrailSyncAdaptor.prototype.name = \&quot;savetrail\&quot;;\n\nSaveTrailSyncAdaptor.prototype.isReady = function() {\n\t// The savetrail adaptor is always ready\n\treturn true;\n};\n\nSaveTrailSyncAdaptor.prototype.getTiddlerInfo = function(tiddler) {\n\treturn {};\n};\n\n/*\nSave a tiddler and invoke the callback with (err,adaptorInfo,revision)\n*/\nSaveTrailSyncAdaptor.prototype.saveTiddler = function(tiddler,callback) {\n\tif($tw.wiki.checkTiddlerText(ENABLE_TIDDLER_TITLE,\&quot;yes\&quot;)) {\n\t\tvar isDraft = $tw.utils.hop(tiddler.fields,\&quot;draft.of\&quot;);\n\t\tif(!isDraft || $tw.wiki.checkTiddlerText(ENABLE_DRAFTS_TIDDLER_TITLE,\&quot;yes\&quot;)) {\n\t\t\tsaveTiddlerFile(tiddler,{reason: \&quot;modified\&quot;});\n\t\t}\n\t}\n\tcallback(null);\n};\n\n/*\nLoad a tiddler and invoke the callback with (err,tiddlerFields)\n*/\nSaveTrailSyncAdaptor.prototype.loadTiddler = function(title,callback) {\n\tcallback(null,null);\n};\n\n/*\nDelete a tiddler and invoke the callback with (err)\n*/\nSaveTrailSyncAdaptor.prototype.deleteTiddler = function(title,callback,options) {\n\tcallback(null);\n};\n\nfunction saveTiddlerFile(tiddler,options) {\n\toptions = options || {};\n\tvar reason = options.reason || \&quot;changed\&quot;,\n\t\tillegalFilenameCharacters = /&lt;|&gt;|\\:|\\\&quot;|\\/|\\\\|\\||\\?|\\*|\\^|\\s/g,\n\t\tfixedTitle = $tw.utils.transliterate(tiddler.fields.title).replace(illegalFilenameCharacters,\&quot;_\&quot;),\n\t\tformattedDate = $tw.utils.stringifyDate(new Date()),\n\t\tfilename =  fixedTitle + \&quot;.\&quot; + formattedDate + \&quot;.\&quot; + reason + \&quot;.json\&quot;,\n\t\tfields = new Object();\n\tfor(var field in tiddler.fields) {\n\t\tfields[field] = tiddler.getFieldString(field);\n\t}\n\tvar text = JSON.stringify([fields],null,$tw.config.preferences.jsonSpaces),\n\t\tlink = document.createElement(\&quot;a\&quot;);\n\tlink.setAttribute(\&quot;target\&quot;,\&quot;_blank\&quot;);\n\tlink.setAttribute(\&quot;rel\&quot;,\&quot;noopener noreferrer\&quot;);\n\tif(Blob !== undefined) {\n\t\tvar blob = new Blob([text], {type: \&quot;text/plain\&quot;});\n\t\tlink.setAttribute(\&quot;href\&quot;, URL.createObjectURL(blob));\n\t} else {\n\t\tlink.setAttribute(\&quot;href\&quot;,\&quot;data:text/plain,\&quot; + encodeURIComponent(text));\n\t}\n\tlink.setAttribute(\&quot;download\&quot;,filename);\n\tdocument.body.appendChild(link);\n\tlink.click();\n\tdocument.body.removeChild(link);\n}\n\n})();\n&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;module-type&quot;: &quot;startup&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/savetrail/settings&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/savetrail/settings&quot;,
+            &quot;text&quot;: &quot;\n&lt;$checkbox tiddler=\&quot;$:/config/SaveTrailPlugin/enable\&quot; field=\&quot;text\&quot; checked=\&quot;yes\&quot; unchecked=\&quot;no\&quot;&gt; Enable automatic saving of modified tiddlers&lt;/$checkbox&gt;\n\n&lt;$checkbox tiddler=\&quot;$:/config/SaveTrailPlugin/enable-drafts\&quot; field=\&quot;text\&quot; checked=\&quot;yes\&quot; unchecked=\&quot;no\&quot;&gt; Include automatic saving of draft tiddlers (warning: generates a lot of download files)&lt;/$checkbox&gt;\n&quot;
+        }
+    }
+}</pre>
+</div>
 <div created="20200312172627456" modified="20200312172809447" title="$:/SiteSubtitle">
 <pre>i lived, i live</pre>
 </div>
-<div created="20200312172620164" modified="20200312172621692" title="$:/SiteTitle">
+<div created="20200312172620164" modified="20200313203125076" title="$:/SiteTitle">
 <pre>VIXI</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="[[HOME SWEET HOME]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200312175602291" list="$:/core/ui/EditorToolbar/paint $:/core/ui/EditorToolbar/opacity $:/core/ui/EditorToolbar/line-width $:/core/ui/EditorToolbar/rotate-left $:/core/ui/EditorToolbar/clear $:/core/ui/EditorToolbar/bold $:/core/ui/EditorToolbar/italic $:/core/ui/EditorToolbar/strikethrough $:/core/ui/EditorToolbar/underline $:/core/ui/EditorToolbar/superscript $:/core/ui/EditorToolbar/subscript $:/core/ui/EditorToolbar/mono-line $:/core/ui/EditorToolbar/linkify $:/core/ui/EditorToolbar/transcludify $:/core/ui/EditorToolbar/mono-block $:/core/ui/EditorToolbar/quote $:/core/ui/EditorToolbar/list-bullet $:/core/ui/EditorToolbar/list-number $:/core/ui/EditorToolbar/heading-1 $:/core/ui/EditorToolbar/heading-2 $:/core/ui/EditorToolbar/heading-3 $:/core/ui/EditorToolbar/heading-4 $:/core/ui/EditorToolbar/heading-5 $:/core/ui/EditorToolbar/heading-6 $:/core/ui/EditorToolbar/link $:/core/ui/EditorToolbar/excise $:/core/ui/EditorToolbar/picture $:/core/ui/EditorToolbar/stamp $:/core/ui/EditorToolbar/size $:/core/ui/EditorToolbar/editor-height $:/core/ui/EditorToolbar/preview-type $:/core/ui/EditorToolbar/preview $:/core/ui/EditorToolbar/more" modified="20200312175608253" title="$:/tags/EditorToolbar">
@@ -9852,11 +9903,26 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20200312182059912" modified="20200312182059912" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
+<div color="#c500ff" created="20200313203318281" icon="" modified="20200313212514893" tags="shadowed" title="aster">
+<pre></pre>
+</div>
 <div created="20200312182445692" modified="20200312184433919" tags="shadowed" title="home decor style">
 <pre></pre>
 </div>
-<div created="20200312172902916" modified="20200312172917364" tags="" title="HOME SWEET HOME">
+<div created="20200312172902916" modified="20200313212701870" tags="" title="HOME SWEET HOME">
+<pre>i am here to warn you of that which was before, that which is now, and that which has yet to come.
+
+[[a world hangs in the balance, ever dying, ever doomed, ever so slowly|XI]]</pre>
+</div>
+<div color="#003cff" created="20200313211223765" modified="20200313212524087" tags="shadowed" title="theta">
 <pre></pre>
+</div>
+<div created="20200313205927619" modified="20200313212352339" tags="theta xi" title="THETA'S JOURNAL">
+<pre>A hand-written journal, recording events and people Theta has witnessed through all his lives. This journal survives all resets and erasure. If physically destroyed, it will appear in XI's void within the hour.
+
+Entries are hand-picked for relevance. You may request the entry for an event or character at any time.
+
+---</pre>
 </div>
 <div creator="inmysocks" title="What is this?">
 <pre>!Welcome to the Bob ~TiddlyWiki.
@@ -9894,6 +9960,24 @@ Things you may want to do:
 </div>
 <div created="20200312184439344" modified="20200312184512246" tags="shadowed" title="whiteboard" type="text/plain">
 <pre>tongue filled with gunpowder</pre>
+</div>
+<div created="20200313204616328" modified="20200313215924601" tags="aster xi" title="WORKS FROM DR. ASTER">
+<pre>Written record of discoveries within the world of XI, by Dr. Aster and various assistants. All entries written at the request of Dr. Aster's employer of the time. Names of any employer(s) and assistant(s) are written above each entry, respectively.
+
+Entries will be added as they are found. You may request the entry for a particular topic at any time.
+
+---</pre>
+</div>
+<div created="20200313203437792" modified="20200313215800777" title="XI">
+<pre>@@display:block;text-align:center;
+//a world hangs in the balance, ever dying, ever doomed, ever so slowly//
+
+&lt;$list filter=&quot;[tag[xi]first[]] -[tag[character]]&quot;&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[xi]rest[]] -[tag[character]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+
+@@</pre>
+</div>
+<div color="#001b51" created="20200313212449698" modified="20200313212503165" tags="shadowed" title="xi">
+<pre></pre>
 </div>
 
 </div>
