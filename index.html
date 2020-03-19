@@ -11897,12 +11897,13 @@ Jamison is fucking gone. in the dead of night we heard him scream and the nothin
 <div color="#c500ff" created="20200313203318281" icon="" modified="20200313212514893" tags="shadowed" title="aster">
 <pre></pre>
 </div>
-<div created="20200314031538686" description="dead men tell the best tales" modified="20200318205940167" tidtype="world" title="DEADLANDS">
+<div created="20200314031538686" description="dead men tell the best tales" modified="20200319151108788" tidtype="world" title="DEADLANDS">
 <pre>@@display:block;text-align:center;
 //dead men tell the best tales//
 
-&lt;$list filter=&quot;[tag[deadlands]first[]] -[tag[character]]&quot;&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[deadlands]rest[]] -[tag[character]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[deadlands]!tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[deadlands]!tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 
+&lt;$list filter=&quot;[tag[deadlands]tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[deadlands]tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 @@</pre>
 </div>
 <div color="#032900" created="20200314031733843" modified="20200316210813508" tags="shadowed" title="deadlands">
@@ -11975,15 +11976,15 @@ Entries are hand-picked for relevance. You may request the entry for an event or
 <div created="20200312184439344" modified="20200312184512246" tags="shadowed" title="whiteboard" type="text/plain">
 <pre>tongue filled with gunpowder</pre>
 </div>
-<div created="20200313203437792" description="the question is no longer how to save them, but why" modified="20200318205314345" styleme="color:#003cff" tidtype="world" title="XI">
+<div created="20200313203437792" description="the question is no longer how to save them, but why" modified="20200319151029764" styleme="color:#003cff" tidtype="world" title="XI">
 <pre>@@display:block;text-align:center;
 //a world hangs in the balance, ever so slowly slipping//
 
 //the question is no longer how to save us, but why//
 
-&lt;$list filter=&quot;[tag[xi]first[]] -[tidtype[character]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[xi]rest[]] -[tidtype[character]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[xi]!tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[xi]!tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 
-&lt;$list filter=&quot;[tag[xi]bl[1]] +[tidtype[character]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;|&lt;/$list&gt;&lt;$list filter=&quot;[tag[xi]last[]] +[tidtype[character]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[xi]tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[xi]tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 
 @@</pre>
 </div>
