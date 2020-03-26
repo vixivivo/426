@@ -243,6 +243,8 @@ Error message and password prompt
 
 <li>$:/core/ui/SideBar/Tools</li>
 
+<li>$:/core/ui/TopBar/menu</li>
+
 <li>$:/DefaultTiddlers</li>
 
 <li>$:/Import!!popup-$:/plugins/tiddlywiki/highlight</li>
@@ -253,8 +255,6 @@ Error message and password prompt
 
 <li>$:/palette</li>
 
-<li>$:/palettes/blackandwhiteandblackandwhiteand</li>
-
 <li>$:/palettes/Blanca</li>
 
 <li>$:/palettes/Blue</li>
@@ -264,6 +264,8 @@ Error message and password prompt
 <li>$:/palettes/ContrastLight</li>
 
 <li>$:/palettes/DarkPhotos</li>
+
+<li>$:/palettes/EXILED-ANGEL</li>
 
 <li>$:/palettes/Muted</li>
 
@@ -282,6 +284,8 @@ Error message and password prompt
 <li>$:/palettes/Twilight</li>
 
 <li>$:/palettes/Vanilla</li>
+
+<li>$:/palettes/VIXI-VIVO</li>
 
 <li>$:/plugins/tiddlywiki/highlight</li>
 
@@ -307,6 +311,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>$:/themes/tiddlywiki/vanilla/metrics/lineheight</li>
+
 <li>$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth</li>
 
 <li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
@@ -324,6 +330,8 @@ Error message and password prompt
 <li>DR. ASTER'S WRITINGS</li>
 
 <li>HOME SWEET HOME</li>
+
+<li>PROPHECY</li>
 
 <li>stylesheet</li>
 
@@ -9901,6 +9909,16 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 &lt;/$set&gt;
 </pre>
 </div>
+<div created="20200326031604069" modified="20200326031631768" tags="$:/tags/TopRightBar" title="$:/core/ui/TopBar/menu">
+<pre>{{PROPHECY}}
+&lt;$reveal state=&quot;$:/state/sidebar&quot; type=&quot;nomatch&quot; text=&quot;no&quot;&gt;
+&lt;$button set=&quot;$:/state/sidebar&quot; setTo=&quot;no&quot; tooltip={{$:/language/Buttons/HideSideBar/Hint}} aria-label={{$:/language/Buttons/HideSideBar/Caption}} class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/chevron-right}}&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/sidebar&quot; type=&quot;match&quot; text=&quot;no&quot;&gt;
+&lt;$button set=&quot;$:/state/sidebar&quot; setTo=&quot;yes&quot; tooltip={{$:/language/Buttons/ShowSideBar/Hint}} aria-label={{$:/language/Buttons/ShowSideBar/Caption}} class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/chevron-left}}&lt;/$button&gt;
+&lt;/$reveal&gt;
+</pre>
+</div>
 <div created="20171108214559509" modified="20200313203142755" title="$:/DefaultTiddlers">
 <pre>[[HOME SWEET HOME]]</pre>
 </div>
@@ -9913,113 +9931,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20200312172846009" modified="20200312172846009" title="$:/language/DefaultNewTiddlerTitle">
 <pre></pre>
 </div>
-<div created="20200312173001901" modified="20200314031008361" title="$:/palette">
-<pre>$:/palettes/blackandwhiteandblackandwhiteand</pre>
-</div>
-<div created="20200314030831404" description="neutral with the occasional splash of color" modified="20200314030942694" name="mono" tags="$:/tags/Palette" title="$:/palettes/blackandwhiteandblackandwhiteand" type="application/x-tiddler-dictionary">
-<pre>alert-background: #000000
-alert-border: #ff6969
-alert-highlight: #ff6969
-alert-muted-foreground: #ff6969
-background: #121212
-blockquote-bar: &lt;&lt;colour muted-foreground&gt;&gt;
-button-background: #000000
-button-foreground: #ebebeb
-button-border: #0c0c0c
-code-background: #000000
-code-border: #0c0c0c
-code-foreground: #ebebeb
-dirty-indicator: #ff6969
-download-background: #000000
-download-foreground: &lt;&lt;colour foreground&gt;&gt;
-dragger-background: &lt;&lt;colour foreground&gt;&gt;
-dragger-foreground: #000000
-dropdown-background: #000000
-dropdown-border: #aaaaaa
-dropdown-tab-background-selected: #121212
-dropdown-tab-background: #a5a5a5
-dropzone-background: #121212
-external-link-background-hover: inherit
-external-link-background-visited: inherit
-external-link-background: inherit
-external-link-foreground-hover: #68b7ff
-external-link-foreground-visited: #b700ff
-external-link-foreground: #0086ff
-foreground: #ffffff
-message-background: #000000
-message-border: #ff6969
-message-foreground: #ffffff
-modal-backdrop: &lt;&lt;colour foreground&gt;&gt;
-modal-background: &lt;&lt;colour background&gt;&gt;
-modal-border: #999999
-modal-footer-background: #121212
-modal-footer-border: #dddddd
-modal-header-border: #eeeeee
-muted-foreground: #ffffff
-notification-background: #000000
-notification-border: #ff6969
-page-background: #0c0c0c
-pre-background: #000000
-pre-border: #0c0c0c
-primary: #ffffff
-sidebar-button-foreground: #ffffff
-sidebar-controls-foreground-hover: #666666
-sidebar-controls-foreground: #ffffff
-sidebar-foreground-shadow: #5e5e5e
-sidebar-foreground: #ffffff
-sidebar-muted-foreground-hover: #ffffff
-sidebar-muted-foreground: #aaaaaa
-sidebar-tab-background-selected: #121212
-sidebar-tab-background: #0c0c0c
-sidebar-tab-border-selected: #ffffff
-sidebar-tab-border: #ffffff
-sidebar-tab-divider: #ffffff
-sidebar-tab-foreground-selected: #ffffff
-sidebar-tab-foreground: #898989
-sidebar-tiddler-link-foreground-hover: &lt;&lt;colour sidebar-tiddler-link-foreground&gt;&gt;
-sidebar-tiddler-link-foreground: #5891ff
-site-title-foreground: &lt;&lt;colour tiddler-title-foreground&gt;&gt;
-static-alert-foreground: #aaaaaa
-tab-background-selected: #0c0c0c
-tab-background: #121212
-tab-border-selected: #ffffff
-tab-border: #ffffff
-tab-divider: #ffffff
-tab-foreground-selected: #ffffff
-tab-foreground: #898989
-table-border: #ffffff
-table-footer-background: #ffffff
-table-header-background: #0c0c0c
-tag-background: #5891ff
-tag-foreground: #ffffff
-tiddler-background: &lt;&lt;colour background&gt;&gt;
-tiddler-border: &lt;&lt;colour background&gt;&gt;
-tiddler-controls-foreground-hover: #666666
-tiddler-controls-foreground-selected: #ff6969
-tiddler-controls-foreground: #ffffff
-tiddler-editor-background: #000000
-tiddler-editor-border-image: #777777
-tiddler-editor-border: #777777
-tiddler-editor-fields-even: #121212
-tiddler-editor-fields-odd: #0c0c0c
-tiddler-info-background: #ffffff
-tiddler-info-border: #dddddd
-tiddler-info-tab-background: #000000
-tiddler-link-background: &lt;&lt;colour background&gt;&gt;
-tiddler-link-foreground: #5891ff
-tiddler-subtitle-foreground: #c0c0c0
-tiddler-title-foreground: #ffffff
-toolbar-new-button: #ffffff
-toolbar-options-button: #ffffff
-toolbar-save-button: #ffffff
-toolbar-info-button: #ffffff
-toolbar-edit-button: #ffffff
-toolbar-close-button: #ffffff
-toolbar-delete-button: #ffffff
-toolbar-cancel-button: #ffffff
-toolbar-done-button: #ffffff
-untagged-background: #999999
-very-muted-foreground: #ffffff</pre>
+<div created="20200312173001901" modified="20200326031710219" title="$:/palette">
+<pre>$:/palettes/VIXI-VIVO</pre>
 </div>
 <div created="20200314030630110" description="A clean white palette to let you focus" modified="20200314030630110" name="Blanca" title="$:/palettes/Blanca" type="application/x-tiddler-dictionary">
 <pre>alert-background: #ffe476
@@ -10560,6 +10473,111 @@ toolbar-done-button:
 untagged-background: #999999
 very-muted-foreground: #888888
 </pre>
+</div>
+<div created="20200325143142184" description="TO THE DEVILS WHO SUPPRESS OUR SORROWS" modified="20200325193443965" name="SINNERS" tags="$:/tags/Palette" title="$:/palettes/EXILED-ANGEL" type="application/x-tiddler-dictionary">
+<pre>alert-background: #000000
+alert-border: #ff6969
+alert-highlight: #ff6969
+alert-muted-foreground: #ff6969
+background: #121212
+blockquote-bar: &lt;&lt;colour muted-foreground&gt;&gt;
+button-background: #000000
+button-foreground: #ebebeb
+button-border: #0c0c0c
+code-background: #000000
+code-border: #0c0c0c
+code-foreground: #ebebeb
+dirty-indicator: #ff6969
+download-background: #000000
+download-foreground: &lt;&lt;colour foreground&gt;&gt;
+dragger-background: &lt;&lt;colour foreground&gt;&gt;
+dragger-foreground: #000000
+dropdown-background: #000000
+dropdown-border: #aaaaaa
+dropdown-tab-background-selected: #121212
+dropdown-tab-background: #a5a5a5
+dropzone-background: #121212
+external-link-background-hover: inherit
+external-link-background-visited: inherit
+external-link-background: inherit
+external-link-foreground-hover: #68b7ff
+external-link-foreground-visited: #b700ff
+external-link-foreground: #0086ff
+foreground: #ffffff
+message-background: #000000
+message-border: #ff6969
+message-foreground: #ffffff
+modal-backdrop: &lt;&lt;colour foreground&gt;&gt;
+modal-background: &lt;&lt;colour background&gt;&gt;
+modal-border: #999999
+modal-footer-background: #121212
+modal-footer-border: #dddddd
+modal-header-border: #eeeeee
+muted-foreground: #ffffff
+notification-background: #000000
+notification-border: #ff6969
+page-background: #0c0c0c
+pre-background: #000000
+pre-border: #0c0c0c
+primary: #ffffff
+sidebar-button-foreground: #ffffff
+sidebar-controls-foreground-hover: #666666
+sidebar-controls-foreground: #ffffff
+sidebar-foreground-shadow: #5e5e5e
+sidebar-foreground: #ffffff
+sidebar-muted-foreground-hover: #ffffff
+sidebar-muted-foreground: #aaaaaa
+sidebar-tab-background-selected: #121212
+sidebar-tab-background: #0c0c0c
+sidebar-tab-border-selected: #ffffff
+sidebar-tab-border: #ffffff
+sidebar-tab-divider: #ffffff
+sidebar-tab-foreground-selected: #ffffff
+sidebar-tab-foreground: #898989
+sidebar-tiddler-link-foreground-hover: &lt;&lt;colour sidebar-tiddler-link-foreground&gt;&gt;
+sidebar-tiddler-link-foreground: #5891ff
+site-title-foreground: &lt;&lt;colour tiddler-title-foreground&gt;&gt;
+static-alert-foreground: #aaaaaa
+tab-background-selected: #0c0c0c
+tab-background: #121212
+tab-border-selected: #ffffff
+tab-border: #ffffff
+tab-divider: #ffffff
+tab-foreground-selected: #ffffff
+tab-foreground: #898989
+table-border: #ffffff
+table-footer-background: #ffffff
+table-header-background: #0c0c0c
+tag-background: #5891ff
+tag-foreground: #ffffff
+tiddler-background: &lt;&lt;colour background&gt;&gt;
+tiddler-border: &lt;&lt;colour background&gt;&gt;
+tiddler-controls-foreground-hover: #666666
+tiddler-controls-foreground-selected: #ff6969
+tiddler-controls-foreground: #ffffff
+tiddler-editor-background: #000000
+tiddler-editor-border-image: #777777
+tiddler-editor-border: #777777
+tiddler-editor-fields-even: #121212
+tiddler-editor-fields-odd: #0c0c0c
+tiddler-info-background: #ffffff
+tiddler-info-border: #dddddd
+tiddler-info-tab-background: #000000
+tiddler-link-background: &lt;&lt;colour background&gt;&gt;
+tiddler-link-foreground: #5891ff
+tiddler-subtitle-foreground: #c0c0c0
+tiddler-title-foreground: #ffffff
+toolbar-new-button: #ffffff
+toolbar-options-button: #ffffff
+toolbar-save-button: #ffffff
+toolbar-info-button: #ffffff
+toolbar-edit-button: #ffffff
+toolbar-close-button: #ffffff
+toolbar-delete-button: #ffffff
+toolbar-cancel-button: #ffffff
+toolbar-done-button: #ffffff
+untagged-background: #999999
+very-muted-foreground: #ffffff</pre>
 </div>
 <div created="20200314031302564" description="Bright tiddlers on a muted background" modified="20200314031302565" name="Muted" title="$:/palettes/Muted" type="application/x-tiddler-dictionary">
 <pre>alert-background: #ffe476
@@ -11625,6 +11643,111 @@ untagged-background: #999999
 very-muted-foreground: #888888
 </pre>
 </div>
+<div created="20200314030831404" description="TO THE GODS WHO NEVER CARED" modified="20200325193337519" name="SAINTS" tags="$:/tags/Palette" title="$:/palettes/VIXI-VIVO" type="application/x-tiddler-dictionary">
+<pre>alert-background: #000000
+alert-border: #ff6969
+alert-highlight: #ff6969
+alert-muted-foreground: #ff6969
+background: #121212
+blockquote-bar: &lt;&lt;colour muted-foreground&gt;&gt;
+button-background: #000000
+button-foreground: #ebebeb
+button-border: #0c0c0c
+code-background: #000000
+code-border: #0c0c0c
+code-foreground: #ebebeb
+dirty-indicator: #ff6969
+download-background: #000000
+download-foreground: &lt;&lt;colour foreground&gt;&gt;
+dragger-background: &lt;&lt;colour foreground&gt;&gt;
+dragger-foreground: #000000
+dropdown-background: #000000
+dropdown-border: #aaaaaa
+dropdown-tab-background-selected: #121212
+dropdown-tab-background: #a5a5a5
+dropzone-background: #121212
+external-link-background-hover: inherit
+external-link-background-visited: inherit
+external-link-background: inherit
+external-link-foreground-hover: #68b7ff
+external-link-foreground-visited: #b700ff
+external-link-foreground: #0086ff
+foreground: #ffffff
+message-background: #000000
+message-border: #ff6969
+message-foreground: #ffffff
+modal-backdrop: &lt;&lt;colour foreground&gt;&gt;
+modal-background: &lt;&lt;colour background&gt;&gt;
+modal-border: #999999
+modal-footer-background: #121212
+modal-footer-border: #dddddd
+modal-header-border: #eeeeee
+muted-foreground: #ffffff
+notification-background: #000000
+notification-border: #ff6969
+page-background: #0c0c0c
+pre-background: #000000
+pre-border: #0c0c0c
+primary: #ffffff
+sidebar-button-foreground: #ffffff
+sidebar-controls-foreground-hover: #666666
+sidebar-controls-foreground: #ffffff
+sidebar-foreground-shadow: #5e5e5e
+sidebar-foreground: #ffffff
+sidebar-muted-foreground-hover: #ffffff
+sidebar-muted-foreground: #aaaaaa
+sidebar-tab-background-selected: #121212
+sidebar-tab-background: #0c0c0c
+sidebar-tab-border-selected: #ffffff
+sidebar-tab-border: #ffffff
+sidebar-tab-divider: #ffffff
+sidebar-tab-foreground-selected: #ffffff
+sidebar-tab-foreground: #898989
+sidebar-tiddler-link-foreground-hover: &lt;&lt;colour sidebar-tiddler-link-foreground&gt;&gt;
+sidebar-tiddler-link-foreground: #5891ff
+site-title-foreground: &lt;&lt;colour tiddler-title-foreground&gt;&gt;
+static-alert-foreground: #aaaaaa
+tab-background-selected: #0c0c0c
+tab-background: #121212
+tab-border-selected: #ffffff
+tab-border: #ffffff
+tab-divider: #ffffff
+tab-foreground-selected: #ffffff
+tab-foreground: #898989
+table-border: #ffffff
+table-footer-background: #ffffff
+table-header-background: #0c0c0c
+tag-background: #5891ff
+tag-foreground: #ffffff
+tiddler-background: &lt;&lt;colour background&gt;&gt;
+tiddler-border: &lt;&lt;colour background&gt;&gt;
+tiddler-controls-foreground-hover: #666666
+tiddler-controls-foreground-selected: #ff6969
+tiddler-controls-foreground: #ffffff
+tiddler-editor-background: #000000
+tiddler-editor-border-image: #777777
+tiddler-editor-border: #777777
+tiddler-editor-fields-even: #121212
+tiddler-editor-fields-odd: #0c0c0c
+tiddler-info-background: #ffffff
+tiddler-info-border: #dddddd
+tiddler-info-tab-background: #000000
+tiddler-link-background: &lt;&lt;colour background&gt;&gt;
+tiddler-link-foreground: #5891ff
+tiddler-subtitle-foreground: #c0c0c0
+tiddler-title-foreground: #ffffff
+toolbar-new-button: #ffffff
+toolbar-options-button: #ffffff
+toolbar-save-button: #ffffff
+toolbar-info-button: #ffffff
+toolbar-edit-button: #ffffff
+toolbar-close-button: #ffffff
+toolbar-delete-button: #ffffff
+toolbar-cancel-button: #ffffff
+toolbar-done-button: #ffffff
+untagged-background: #999999
+very-muted-foreground: #ffffff</pre>
+</div>
 <div author="JoaoBolila" core-version="&gt;=5.0.0" created="20200318002039532" dependents="" description="Highlight.js: syntax highlighting" list="readme usage license" modified="20200318002253334" plugin-type="plugin" tags="" title="$:/plugins/tiddlywiki/highlight" type="application/json" version="5.1.17">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -11867,6 +11990,9 @@ very-muted-foreground: #888888
     }
 }</pre>
 </div>
+<div created="20200326030710739" modified="20200326030715073" title="$:/themes/tiddlywiki/vanilla/metrics/lineheight">
+<pre>20px</pre>
+</div>
 <div created="20200312182104927" modified="20200312182104928" title="$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth">
 <pre>300px</pre>
 </div>
@@ -11940,6 +12066,12 @@ I suggest that we know too little about this trait, and must proceed with cautio
 
 [[dead men tell the best tales|DEADLANDS]]</pre>
 </div>
+<div created="20200325160840232" modified="20200326031108285" tags="shadowed" title="PROPHECY">
+<pre>&lt;$reveal type=&quot;match&quot; state=&quot;$:/state/prophecy&quot; text=&quot;saints&quot;&gt;
+&lt;$button tooltip=&quot;TO THE DEVILS WHO SUPPRESS OUR SORROWS&quot; aria-label=&quot;DEVILS&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt; set=&quot;$:/state/prophecy&quot; setTo=&quot;sinners&quot;&gt;&lt;$action-setfield $tiddler=&quot;$:/palette&quot; text=&quot;$:/palettes/EXILED-ANGEL&quot; /&gt;&lt;$action-setfield $tiddler=&quot;$:/themes/tiddlywiki/vanilla/metrics/fontsize&quot; text=&quot;17&quot; /&gt;◑&lt;/$button&gt;&lt;/$reveal&gt;
+&lt;$reveal type=&quot;nomatch&quot; state=&quot;$:/state/prophecy&quot; text=&quot;saints&quot;&gt;
+&lt;$button tooltip=&quot;TO THE GODS WHO NEVER CARED&quot; aria-label=&quot;GODS&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt; set=&quot;$:/state/prophecy&quot; setTo=&quot;saints&quot;&gt;&lt;$action-setfield $tiddler=&quot;$:/palette&quot; text=&quot;$:/palettes/VIXI-VIVO&quot; /&gt;&lt;$action-deletetiddler $tiddler=&quot;$:/themes/tiddlywiki/vanilla/metrics/fontsize&quot;/&gt;◐&lt;/$button&gt;&lt;/$reveal&gt;</pre>
+</div>
 <div created="20200318194302028" modified="20200318204201297" tags="$:/tags/Stylesheet shadowed" title="stylesheet" type="text/plain">
 <pre>.entry {
     display: block;
@@ -11983,7 +12115,7 @@ Typically seen wearing skyblue jacket with white faux fur on the inside of hood,
 <div color="#003cff" created="20200313211223765" modified="20200313212524087" tags="shadowed" title="theta">
 <pre></pre>
 </div>
-<div created="20200313205927619" modified="20200325023705011" tags="theta xi" title="THETA'S JOURNAL">
+<div created="20200313205927619" modified="20200325024619905" tags="theta xi" title="THETA'S JOURNAL">
 <pre>//the journal is filled around halfway with hastily scribbled writing, sticky notes, and small drawings. each page or two describes something either discovered or experienced in one of theta's lives.//
 
 A journal recording events and people Theta has witnessed through all his lives. This journal survives all resets and erasure. If physically destroyed, it will appear in XI's void within the hour.
@@ -11993,7 +12125,7 @@ Entries are hand-picked for relevance. You may request the entry for an event or
 ---
 
 @@.entry
-tuesday, 24/03/2020&lt;span style=&quot;color:#ff0000&quot;&gt;*&lt;/span&gt;
+tuesday, 24/03/2020&lt;span style=&quot;color:#0000ff&quot;&gt;*&lt;/span&gt;
 ~~​dapper~~ bow
 ​
 17/01/2019
@@ -12004,7 +12136,7 @@ met the guy. he's not so bad, just... &lt;span style=&quot;color:#ff0000&quot;&g
 ​
 &lt;span style=&quot;color:#ff0000&quot;&gt;''//On this section of the page, Theta has roughly drawn a tall man in a suit, with a television in place of his head. On the screen, there appear to be several bright color test bars, and a pair of cartoon-styled red-green-and-blue eyes.//''&lt;/span&gt;
 ​
-&lt;span style=&quot;color:#ff0000&quot;&gt;''*Note: This date appears to have been erased and rewritten several times, whereas the previous ones are crossed out.''&lt;/span&gt;
+&lt;span style=&quot;color:#0000ff&quot;&gt;''*Note: This date appears to have been erased and rewritten several times, whereas the previous ones are crossed out.''&lt;/span&gt;
 @@</pre>
 </div>
 <div created="20200312184439344" modified="20200312184512246" tags="shadowed" title="whiteboard" type="text/plain">
