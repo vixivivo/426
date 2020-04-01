@@ -9670,7 +9670,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20141212105914482" modified="20200312182649277" tags="$:/tags/Macro" title="$:/core/macros/timeline">
+<div created="20141212105914482" modified="20200330175507473" tags="$:/tags/Macro" title="$:/core/macros/timeline">
 <pre>\define timeline-title()
 &lt;!-- Override this macro with a global macro 
      of the same name if you need to change 
@@ -9683,7 +9683,7 @@ Error message and password prompt
 &lt;$list filter=&quot;[!is[system]$subfilter$has[$dateField$]!sort[$dateField$]limit[$limit$]eachday[$dateField$]]&quot;&gt;
 &lt;div class=&quot;tc-menu-list-item&quot;&gt;
 &lt;$view field=&quot;$dateField$&quot; format=&quot;date&quot; template=&quot;$format$&quot;/&gt;
-&lt;$list filter=&quot;[sameday:$dateField${!!$dateField$}!is[system]$subfilter$!tag[shadowed]!sort[$dateField$]]&quot;&gt;
+&lt;$list filter=&quot;[$subfilter$sameday:$dateField${!!$dateField$}!is[system]!tag[shadowed]!sort[$dateField$]]&quot;&gt;
 &lt;div class=&quot;tc-menu-list-subitem&quot;&gt;
 &lt;$link to={{!!title}}&gt;
 &lt;&lt;timeline-title&gt;&gt;
@@ -12035,12 +12035,12 @@ Jamison is fucking gone. in the dead of night we heard him scream and the nothin
 <div color="#032900" created="20200314031733843" modified="20200316210813508" tags="shadowed" title="deadlands">
 <pre></pre>
 </div>
-<div created="20200318203704046" modified="20200328040609093" tags="aster xi" tidtype="character" title="DR. ASTER">
+<div created="20200318203704046" modified="20200330002554479" tags="aster xi" tidtype="character" title="DR. ASTER">
 <pre>//to lose even a minor part of yourself may have dire consequences, and moreso if there is no cure.//
 
-Dr. Aster is one of three advisors to the king, overseeing all matters of science and the distribution of resources. He determines most of where monsterkind will live, how they will live, and how they are educated. 
+Dr. Aster is one of three advisors to the king, overseeing all matters of science and the distribution of resources. He determines most of where monsterkind will live, how they will live, and how they are educated. He is also required to [[record his actions and results|DR. ASTER'S WRITINGS]], for most assignments.
 
-Aster was involved in the war at a rather young age. The Determination mage leading humanity left him withmoreso if you never find a cure a cracked skull, bad eyes, and a significant decrease in magical ability. He also lost the majority of his emotional response and empathy, causing him to seem very cold towards others, including those he finds value in.
+Aster was involved in the war at a rather young age. The Determination mage leading humanity left him with a cracked skull, bad eyes, and a significant decrease in magical ability. He also lost the majority of his emotional response and empathy, causing him to seem very cold towards others, including those he finds value in.
 
 ---
 
@@ -12051,11 +12051,11 @@ Aster was involved in the war at a rather young age. The Determination mage lead
 ​
 ''Description:''
 ​
-5'11&quot;, very thin frame. Previously, no eyelights, but eyeglow acts as such. Eyeglow in the shape of a diamond, dilates and contracts similarly to a vertical slit eyeball.
+5'11&quot;, very thin frame. Previously no eyelights, eyeglow currently acts as such. Eyeglow in the shape of a diamond, dilates and contracts similarly to a vertical slit eyeball.
 ​
 Typically seen wearing a knee-length white lab coat with the silver science division's insignia on the back, glasses with dark purple frames and no visible temples.
 ​
-&lt;span style=&quot;color:#ff0000&quot;&gt;Permanent magical damage&lt;/span&gt; - 1/20 of form/active magic caps completely dissolved. Damaged in physical form, no attempts to heal found successful. Resorting to human-manufactured eyeglasses to correct vision. Left eye entirely blind/lightless, kept closed in most situations.
+&lt;span style=&quot;color:#ff0000&quot;&gt;Permanent magical damage&lt;/span&gt; - 1/20 of form/active magic caps completely dissolved. Damaged in physical form, no attempts to heal found successful. Resorting to human-manufactured eyeglasses to correct vision. Left eye entirely blind and lightless, kept closed in most situations.
 @@</pre>
 </div>
 <div created="20200313204616328" modified="20200318204211158" tags="aster xi" title="DR. ASTER'S WRITINGS">
@@ -12135,8 +12135,8 @@ Typically seen wearing skyblue jacket with white faux fur on the inside of hood,
 <div color="#003cff" created="20200313211223765" modified="20200313212524087" tags="shadowed" title="theta">
 <pre></pre>
 </div>
-<div created="20200313205927619" modified="20200325024619905" tags="theta xi" title="THETA'S JOURNAL">
-<pre>//the journal is filled around halfway with hastily scribbled writing, sticky notes, and small drawings. each page or two describes something either discovered or experienced in one of theta's lives.//
+<div created="20200313205927619" modified="20200330211330660" tags="theta xi" title="THETA'S JOURNAL">
+<pre>//the journal is filled about halfway with hastily scribbled writing, sticky notes, and small drawings. each page or two describes something either discovered or experienced in one of theta's lives.//
 
 A journal recording events and people Theta has witnessed through all his lives. This journal survives all resets and erasure. If physically destroyed, it will appear in XI's void within the hour.
 
@@ -12149,10 +12149,12 @@ tuesday, 24/03/2020&lt;span style=&quot;color:#0000ff&quot;&gt;*&lt;/span&gt;
 ~~​dapper~~ bow
 ​
 17/01/2019
-c and az met a weird tv-head guy named &quot;dapper&quot;. claims he's the source of agent's magic. seems a bit suspicious, and kp clearly doesn't like him either. will have to meet this guy.
+c and az met a weird tv-head guy named &quot;dapper&quot;. claims he's the source of agent's magic. seems a bit suspicious. kp clearly doesn't like him, and i agree, he doesn't seem trustworthy at all. will have to meet this &quot;dapper&quot; soon to make sure he's safe to be around.
 ​
 18/01/2019
-met the guy. he's not so bad, just... &lt;span style=&quot;color:#ff0000&quot;&gt;''FATAL ERROR: REMAINING DATA CORRUPTED!''&lt;/span&gt;
+met the guy. he's not so bad, just strange. dragged me along for some mandatory bonding with aster, but i think i was an excuse for the two to spend time together, so i'm gonna leave them to chat. hopefully no one gets hurt.
+​
+19/01/2019
 ​
 &lt;span style=&quot;color:#ff0000&quot;&gt;''//On this section of the page, Theta has roughly drawn a tall man in a suit, with a television in place of his head. On the screen, there appear to be several bright color test bars, and a pair of cartoon-styled red-green-and-blue eyes.//''&lt;/span&gt;
 ​
