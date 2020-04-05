@@ -313,8 +313,6 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
-<li>$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize</li>
-
 <li>$:/themes/tiddlywiki/vanilla/metrics/lineheight</li>
 
 <li>$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth</li>
@@ -323,11 +321,7 @@ Error message and password prompt
 
 <li>A MERCENARY'S JOURNAL</li>
 
-<li>aster</li>
-
 <li>DEADLANDS</li>
-
-<li>deadlands</li>
 
 <li>DR. ASTER</li>
 
@@ -335,21 +329,19 @@ Error message and password prompt
 
 <li>HOME SWEET HOME</li>
 
+<li>IOTA</li>
+
 <li>PROPHECY</li>
 
 <li>stylesheet</li>
 
 <li>THETA</li>
 
-<li>theta</li>
-
 <li>THETA'S JOURNAL</li>
 
 <li>whiteboard</li>
 
 <li>XI</li>
-
-<li>xi</li>
 
 </ul>
 </p>
@@ -9674,7 +9666,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20141212105914482" modified="20200330175507473" tags="$:/tags/Macro" title="$:/core/macros/timeline">
+<div created="20141212105914482" modified="20200405185833070" tags="$:/tags/Macro" title="$:/core/macros/timeline">
 <pre>\define timeline-title()
 &lt;!-- Override this macro with a global macro 
      of the same name if you need to change 
@@ -9684,10 +9676,10 @@ Error message and password prompt
 \end
 \define timeline(limit:&quot;100&quot;,format:&quot;YYYY0MM0DD&quot;,subfilter:&quot;&quot;,dateField:&quot;modified&quot;)
 &lt;div class=&quot;tc-timeline&quot;&gt;
-&lt;$list filter=&quot;[!is[system]$subfilter$has[$dateField$]!sort[$dateField$]limit[$limit$]eachday[$dateField$]]&quot;&gt;
+&lt;$list filter=&quot;[!is[system]$subfilter$!tag[shadowed]has[$dateField$]!sort[$dateField$]limit[$limit$]eachday[$dateField$]]&quot;&gt;
 &lt;div class=&quot;tc-menu-list-item&quot;&gt;
 &lt;$view field=&quot;$dateField$&quot; format=&quot;date&quot; template=&quot;$format$&quot;/&gt;
-&lt;$list filter=&quot;[$subfilter$sameday:$dateField${!!$dateField$}!is[system]!tag[shadowed]!sort[$dateField$]]&quot;&gt;
+&lt;$list filter=&quot;[$subfilter$!tag[shadowed]sameday:$dateField${!!$dateField$}!is[system]!sort[$dateField$]]&quot;&gt;
 &lt;div class=&quot;tc-menu-list-subitem&quot;&gt;
 &lt;$link to={{!!title}}&gt;
 &lt;&lt;timeline-title&gt;&gt;
@@ -9949,8 +9941,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20200312172846009" modified="20200312172846009" title="$:/language/DefaultNewTiddlerTitle">
 <pre></pre>
 </div>
-<div created="20200312173001901" modified="20200405184613668" title="$:/palette">
-<pre>$:/palettes/EXILED-ANGEL</pre>
+<div created="20200312173001901" modified="20200405185126691" title="$:/palette">
+<pre>$:/palettes/VIXI-VIVO</pre>
 </div>
 <div created="20200314030630110" description="A clean white palette to let you focus" modified="20200314030630110" name="Blanca" title="$:/palettes/Blanca" type="application/x-tiddler-dictionary">
 <pre>alert-background: #ffe476
@@ -12008,9 +12000,6 @@ very-muted-foreground: #ffffff</pre>
     }
 }</pre>
 </div>
-<div created="20200405184613669" modified="20200405184613669" title="$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize">
-<pre>18</pre>
-</div>
 <div created="20200326030710739" modified="20200326030715073" title="$:/themes/tiddlywiki/vanilla/metrics/lineheight">
 <pre>20px</pre>
 </div>
@@ -12020,7 +12009,7 @@ very-muted-foreground: #ffffff</pre>
 <div created="20200312182059912" modified="20200312182059912" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20200314031616613" modified="20200318204253547" tags="deadlands" title="A MERCENARY'S JOURNAL">
+<div created="20200314031616613" modified="20200405195057128" tags="DEADLANDS" title="A MERCENARY'S JOURNAL">
 <pre>---
 
 @@.entry
@@ -12041,32 +12030,26 @@ We stepped our first foot in the DeadLands. this place is fucking nuts. dead tre
 Jamison is fucking gone. in the dead of night we heard him scream and the nothing. we looked over and he was fucking GONE. i dont fucking know what happened, but that thing i saw had to have been it. Rose tried to run in further but me and Joan grabbed her before she could kill herself. that fucking sceintist just doesnt give a shit. we just grabbed him and our shit and got the fuck out of there. there was no time to mourn. not here. just suck it up and go as always. we just went back to walking, we are tired scared and fucking angry. i think i see smoke over a hill. we have set up a camp for now, we are all taking watch and defending for the rest of the night. we can check it out tommorow.
 @@</pre>
 </div>
-<div color="#c500ff" created="20200313203318281" icon="" modified="20200313212514893" tags="shadowed" title="aster">
-<pre></pre>
-</div>
-<div created="20200314031538686" description="dead men tell the best tales" modified="20200319151108788" tidtype="world" title="DEADLANDS">
+<div color="#032900" created="20200314031538686" description="dead men tell the best tales" modified="20200405195956890" tidtype="world" title="DEADLANDS">
 <pre>@@display:block;text-align:center;
 //dead men tell the best tales//
 
-&lt;$list filter=&quot;[tag[deadlands]!tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[deadlands]!tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[DEADLANDS]!tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[DEADLANDS]!tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 
-&lt;$list filter=&quot;[tag[deadlands]tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[deadlands]tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[DEADLANDS]tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[DEADLANDS]tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 @@</pre>
 </div>
-<div color="#032900" created="20200314031733843" modified="20200316210813508" tags="shadowed" title="deadlands">
-<pre></pre>
-</div>
-<div created="20200318203704046" modified="20200330002554479" tags="aster xi" tidtype="character" title="DR. ASTER">
+<div color="#c500ff" created="20200318203704046" modified="20200405195132962" tags="[[DR. ASTER]] XI" tidtype="character" title="DR. ASTER">
 <pre>//to lose even a minor part of yourself may have dire consequences, and moreso if there is no cure.//
 
-Dr. Aster is one of three advisors to the king, overseeing all matters of science and the distribution of resources. He determines most of where monsterkind will live, how they will live, and how they are educated. He is also required to [[record his actions and results|DR. ASTER'S WRITINGS]], for most assignments.
+Dr. Aster is one of three advisors to the king, overseeing all matters of science and the distribution of resources. He determines most of where monsterkind will live, how they will live, and how they are educated. He is also required to [[record his actions and results|DR. ASTER'S WRITINGS]], for most assignments. He is also the creator of [[Theta|THETA]] and [[Iota|IOTA]]. He personally revived [[Asha|ASHA]] and [[Day|DAY]].
 
 Aster was involved in the war at a rather young age. The Determination mage leading humanity left him with a cracked skull, bad eyes, and a significant decrease in magical ability. He also lost the majority of his emotional response and empathy, causing him to seem very cold towards others, including those he finds value in.
 
 ---
 
 @@.entry
-''ASTER''
+''DR. ASTER''
 ''BossMonster &gt;&gt; Skeleton''
 ''Trait:'' Perseverance
 ​
@@ -12079,7 +12062,7 @@ Typically seen wearing a knee-length white lab coat with the silver science divi
 &lt;span style=&quot;color:#ff0000&quot;&gt;Permanent magical damage&lt;/span&gt; - 1/20 of form/active magic caps completely dissolved. Damaged in physical form, no attempts to heal found successful. Resorting to human-manufactured eyeglasses to correct vision. Left eye entirely blind and lightless, kept closed in most situations.
 @@</pre>
 </div>
-<div created="20200313204616328" modified="20200318204211158" tags="aster xi" title="DR. ASTER'S WRITINGS">
+<div created="20200313204616328" modified="20200405195317617" tags="[[DR. ASTER]] XI" title="DR. ASTER'S WRITINGS">
 <pre>Written record of discoveries within the world of XI, by Dr. Aster and various assistants. All entries written at the request of Dr. Aster's employer at the time. Names of any employer(s) and assistant(s) are written at the top of each entry, respectively.
 
 Entries will be added as they are found. You may request the entry for a particular topic at any time.
@@ -12100,12 +12083,22 @@ Despite this, there is much evidence for second-layered DT in certain cases. For
 I suggest that we know too little about this trait, and must proceed with caution. These are dangerous people who only appear to be getting stronger. Until we have more information, we should set the matter aside, and be on the lookout for any DT mages.
 @@</pre>
 </div>
-<div created="20200312172902916" modified="20200324185213702" tags="" title="HOME SWEET HOME">
+<div created="20200312172902916" modified="20200405195927946" tags="" title="HOME SWEET HOME">
 <pre>i am here to warn you of that which was before, that which is now, and that which has yet to come.
 
 [[a world is splitting at the seams|XI]]
 
 [[dead men tell the best tales|DEADLANDS]]</pre>
+</div>
+<div color="#00c000" created="20200405185247532" modified="20200405200635574" tags="IOTA XI" title="IOTA">
+<pre>//far too nice for his good and safety, too forgiving to be the change he needs//
+
+---
+
+@@.entry
+''IOTA''
+''BossMonster &gt;&gt; Skeleton &lt;span style='color:#ff0000'&gt;(Artificial)&lt;/span&gt;''
+@@</pre>
 </div>
 <div created="20200325160840232" modified="20200405184605246" tags="shadowed" title="PROPHECY">
 <pre>&lt;$reveal type=&quot;match&quot; state=&quot;$:/state/prophecy&quot; text=&quot;saints&quot;&gt;
@@ -12113,7 +12106,7 @@ I suggest that we know too little about this trait, and must proceed with cautio
 &lt;$reveal type=&quot;nomatch&quot; state=&quot;$:/state/prophecy&quot; text=&quot;saints&quot;&gt;
 &lt;$button tooltip=&quot;TO THE GODS WHO NEVER CARED&quot; aria-label=&quot;GODS&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt; set=&quot;$:/state/prophecy&quot; setTo=&quot;saints&quot;&gt;&lt;$action-setfield $tiddler=&quot;$:/palette&quot; text=&quot;$:/palettes/VIXI-VIVO&quot; /&gt;&lt;$action-deletetiddler $tiddler=&quot;$:/themes/tiddlywiki/vanilla/metrics/fontsize&quot;/&gt;&lt;$action-deletetiddler $tiddler=&quot;$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize&quot; /&gt;◐&lt;/$button&gt;&lt;/$reveal&gt;</pre>
 </div>
-<div created="20200318194302028" modified="20200318204201297" tags="$:/tags/Stylesheet shadowed" title="stylesheet" type="text/plain">
+<div created="20200318194302028" modified="20200405192117493" tags="$:/tags/Stylesheet shadowed" title="stylesheet" type="text/plain">
 <pre>.entry {
     display: block;
     word-break: normal;
@@ -12129,7 +12122,7 @@ I suggest that we know too little about this trait, and must proceed with cautio
     font-family: &quot;SFMono-Regular&quot;,Consolas,&quot;Liberation Mono&quot;,Menlo,Courier,monospace;
 }</pre>
 </div>
-<div created="20200318203523679" modified="20200324180538749" tags="theta xi" tidtype="character" title="THETA">
+<div color="#003cff" created="20200405195250919" modified="20200405200415280" title="THETA">
 <pre>//a monster living a thousand lives, whether in exile or simply limbo. he may wander aimlessly forever, and after that time, simply be.//
 
 Theta is the longest-living character within XI. He was the first to be created, and will perhaps be the last to fade. His abnormally high active magic cap allows him to retain memories, even through so-called &quot;resets&quot; and &quot;restarts&quot;. This is also due, in part, to the records he keeps in [[his journal|THETA'S JOURNAL]]. This is simultaneously a blessing and a curse.
@@ -12153,10 +12146,7 @@ Typically seen wearing skyblue jacket with white faux fur on the inside of hood,
 &lt;span style='color:#ff0000'&gt;Skull deformation&lt;/span&gt; - Jaw fused entirely. No mouth movement demonstrated, if possible. Causes no obvious discomfort.
 @@</pre>
 </div>
-<div color="#003cff" created="20200313211223765" modified="20200313212524087" tags="shadowed" title="theta">
-<pre></pre>
-</div>
-<div created="20200313205927619" modified="20200402184542372" tags="theta xi" title="THETA'S JOURNAL">
+<div created="20200313205927619" modified="20200405195009655" tags="THETA XI" title="THETA'S JOURNAL">
 <pre>//the journal is filled about halfway with hastily scribbled writing, sticky notes, and small drawings. each page or two describes something either discovered or experienced in one of theta's lives.//
 
 A journal recording events and people Theta has witnessed through all his lives. This journal survives all resets and erasure. If physically destroyed, it will appear in XI's void within the hour.
@@ -12179,26 +12169,23 @@ met the guy. he's not so bad, just strange. dragged me along for some mandatory 
 ​
 19/01/2019
 ​
-&lt;span style=&quot;color:#0000ff&quot;&gt;''*Note: This date appears to have been erased and rewritten several times, whereas the previous ones are crossed out.''&lt;/span&gt;
+&lt;span style=&quot;color:#0000ff&quot;&gt;''*Note: This date appears to have been erased and rewritten several times.''&lt;/span&gt;
 @@</pre>
 </div>
 <div created="20200312184439344" modified="20200312184512246" tags="shadowed" title="whiteboard" type="text/plain">
 <pre>tongue filled with gunpowder</pre>
 </div>
-<div created="20200313203437792" description="a world is splitting at the seams" modified="20200324185222520" styleme="color:#003cff" tidtype="world" title="XI">
+<div color="#001b51" created="20200313203437792" description="a world is splitting at the seams" modified="20200405195910209" styleme="color:#003cff" tidtype="world" title="XI">
 <pre>@@display:block;text-align:center;
 //a world is splitting at the seams, with only a hopeless creature left to sew it back together//
 
 //the question is no longer how to save it, but why//
 
-&lt;$list filter=&quot;[tag[xi]!tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[xi]!tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[XI]!tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[XI]!tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 
-&lt;$list filter=&quot;[tag[xi]tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[xi]tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[XI]tidtype[character]first[1]]&quot;&gt;&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;&lt;$list filter=&quot;[tag[XI]tidtype[character]bf[1]]&quot;&gt;|&lt;$link to={{!!title}}&gt;{{!!title}}&lt;/$link&gt;&lt;/$list&gt;
 
 @@</pre>
-</div>
-<div color="#001b51" created="20200313212449698" modified="20200313212503165" tags="shadowed" title="xi">
-<pre></pre>
 </div>
 
 </div>
